@@ -31,21 +31,22 @@
     </footer>
 
     <script>
-        var url = 'https://newsapi.org/v2/top-headlines?' + 'country=au&' + 'apiKey=81e2959a083d42e091898d3be711e743';
-        var req = new Request(url);
-
-        fetch(req)
-        .then(function(response) {
-            let jsonRes = response.json();
-            return jsonRes;
-        })
-        .then(function(res){
-            let p = document.querySelector("#titles");
+        async function logFetch(url) {
+        try {
+            const response = await fetch(url);
+            const jsonRes = await response.json();
+            const titles = document.querySelector("#titles");
             for (var i = 0; i < 5; i++){
-                p.innerHTML += `<br> ${res.articles[i].title}`;
+                titles.innerHTML += `<br> ${jsonRes.articles[i].title}`;
             }
-        })
-        .catch(err => console.log(err))
+
+        }
+        catch (err) {
+            console.log('Fetch failed', err);
+        }
+        }
+
+        logFetch('https://newsapi.org/v2/top-headlines?' + 'country=au&' + 'apiKey=81e2959a083d42e091898d3be711e743')
     </script>
 </body>
 </html>
