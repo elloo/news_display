@@ -11,40 +11,41 @@
     <header>
         <h1>News!</h1>
     </header>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <p id="titles"></p>
-                </div>
-                <div class="col">
 
-                </div>
-                <div class="col">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p id="titles"></p>
+            </div>
+            <div class="col">
 
-                </div>
+            </div>
+            <div class="col">
+
             </div>
         </div>
+    </div>
+
     <footer>
         <p>Powered by <a href="https://newsapi.org">News API</a></p>
     </footer>
+
     <script>
-        var url = 'https://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-          'apiKey=81e2959a083d42e091898d3be711e743';
+        var url = 'https://newsapi.org/v2/top-headlines?' + 'country=au&' + 'apiKey=81e2959a083d42e091898d3be711e743';
         var req = new Request(url);
+
         fetch(req)
-            .then(function(response) {
-                let jsonRes = response.json();
-                return jsonRes;
-            })
-            .then(function(res){
-                let p = document.querySelector("#titles");
-                let articles = res.articles;
-                for (var i = 0; i < 5; i++){
-                    p.innerHTML += `<br> ${res.articles[i].title}`;
-                }
-            })
-            .catch(err => console.log(err))
+        .then(function(response) {
+            let jsonRes = response.json();
+            return jsonRes;
+        })
+        .then(function(res){
+            let p = document.querySelector("#titles");
+            for (var i = 0; i < 5; i++){
+                p.innerHTML += `<br> ${res.articles[i].title}`;
+            }
+        })
+        .catch(err => console.log(err))
     </script>
 </body>
 </html>
