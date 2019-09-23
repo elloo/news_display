@@ -14,8 +14,10 @@
         var req = new Request(url);
         fetch(req)
             .then(function(response) {
-                console.log(response.json());
+                let jsonRes = response.json()
+                console.log(jsonRes.articles[0]);
             })
+            .catch(err => console.log(err))
     </script>
     <footer>
         <p>Powered by <a href="https://newsapi.org">News API</a></p>
