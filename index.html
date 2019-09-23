@@ -8,27 +8,22 @@
     <title>News Display</title>
 </head>
 <body>
-    <header>
-        <h1>News!</h1>
-    </header>
-
     <div class="container">
+        <header>
+            <h1>News!</h1>
+        </header>
         <div class="row">
-            <div class="col">
+            <div class="col-4">
                 <p id="titles"></p>
             </div>
-            <div class="col">
-
-            </div>
-            <div class="col">
+            <div class="col-8">
 
             </div>
         </div>
+        <footer>
+            <p>Powered by <a href="https://newsapi.org">News API</a></p>
+        </footer>
     </div>
-
-    <footer>
-        <p>Powered by <a href="https://newsapi.org">News API</a></p>
-    </footer>
 
     <script>
         async function logFetch(url) {
@@ -46,7 +41,7 @@
         }
         }
 
-        logFetch('https://newsapi.org/v2/top-headlines?' + 'country=au&' + 'apiKey=81e2959a083d42e091898d3be711e743')
+        logFetch('https://newsapi.org/v2/top-headlines?country=au&apiKey=81e2959a083d42e091898d3be711e743')
     </script>
 </body>
 </html>
