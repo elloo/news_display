@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>News Display</title>
 </head>
 <body>
-    
+    <script>
+        var url = 'https://newsapi.org/v2/top-headlines?' +
+          'country=us&' +
+          'apiKey=81e2959a083d42e091898d3be711e743';
+        var req = new Request(url);
+        fetch(req)
+            .then(function(response) {
+                console.log(response.json());
+            })
+    </script>
+    <footer>
+        <p>Powered by <a href="https://newsapi.org">News API</a></p>
+    </footer>
 </body>
 </html>
