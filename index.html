@@ -4,23 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>News Display</title>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>News!</h1>
+        </header>
+        <div class="row">
+            <div class="col-4">
+                <ul id="titles"></ul>
+            </div>
+            <div class="col-8" id="main">
 
+            </div>
+        </div>
+        <footer>
+            <p>Powered by <a href="https://newsapi.org">News API</a></p>
+        </footer>
+    </div>
 
     <script>
-        var url = 'https://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-          'apiKey=81e2959a083d42e091898d3be711e743';
-        var req = new Request(url);
-        fetch(req)
-            .then(function(response) {
-                console.log(response.json());
-            })
+        function displayArticle(id){
+            console.log(id);
+        }
+
+        async function logFetch(url) {
+        try {
+            const response = await fetch(url);
+            const jsonRes = await response.json();
+            const titlesUl = document.querySelector("#titles");
+            for (var i = 0; i < 5; i++){
+                let newLink = document.createElement("li");
+                let linkNum = "link" + i;
+                let articleTitle = `${jsonRes.articles[i].title}`;
+                newLink.setAttribute("id", linkNum);
+                newLink.setAttribute("onclick", "displayArticle(this.id)")
+                newLink.innerHTML = articleTitle;
+                titlesUl.appendChild(newLink);
+            }
+
+        }
+        catch (err) {
+            console.log('Fetch failed', err);
+        }
+        }
+
+        logFetch('https://newsapi.org/v2/top-headlines?country=au&apiKey=81e2959a083d42e091898d3be711e743')
     </script>
-    <footer>
-        <p>Powered by <a href="https://newsapi.org">News API</a></p>
-    </footer>
 </body>
 </html>
