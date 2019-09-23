@@ -14,9 +14,9 @@
         </header>
         <div class="row">
             <div class="col-4">
-                <p id="titles"></p>
+                <ul id="titles"></ul>
             </div>
-            <div class="col-8">
+            <div class="col-8" id="main">
 
             </div>
         </div>
@@ -26,13 +26,23 @@
     </div>
 
     <script>
+        function displayArticle(id){
+            console.log(id);
+        }
+
         async function logFetch(url) {
         try {
             const response = await fetch(url);
             const jsonRes = await response.json();
-            const titles = document.querySelector("#titles");
+            const titlesUl = document.querySelector("#titles");
             for (var i = 0; i < 5; i++){
-                titles.innerHTML += `<br> ${jsonRes.articles[i].title}`;
+                let newLink = document.createElement("li");
+                let linkNum = "link" + i;
+                let articleTitle = `${jsonRes.articles[i].title}`;
+                newLink.setAttribute("id", linkNum);
+                newLink.setAttribute("onclick", "displayArticle(this.id)")
+                newLink.innerHTML = articleTitle;
+                titlesUl.appendChild(newLink);
             }
 
         }
