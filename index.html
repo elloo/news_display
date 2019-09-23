@@ -11,19 +11,19 @@
     <header>
         <h1>News!</h1>
     </header>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p id="my-paragraph"></p>
-            </div>
-            <div class="col">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p id="titles"></p>
+                </div>
+                <div class="col">
 
-            </div>
-            <div class="col">
+                </div>
+                <div class="col">
 
+                </div>
             </div>
         </div>
-    </div>
     <footer>
         <p>Powered by <a href="https://newsapi.org">News API</a></p>
     </footer>
@@ -38,8 +38,11 @@
                 return jsonRes;
             })
             .then(function(res){
-                let p = document.querySelector("#my-paragraph");
-                p.innerHTML = res.articles[0].description;
+                let p = document.querySelector("#titles");
+                let articles = res.articles;
+                for (var i = 0; i < 5; i++){
+                    p.innerHTML += `<br> ${res.articles[i].title}`;
+                }
             })
             .catch(err => console.log(err))
     </script>
