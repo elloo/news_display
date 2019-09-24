@@ -1,4 +1,6 @@
-function dynamicURL
+function dynamicURL(){
+    
+}
 
 function displayArticle(article){
     const mainDiv = document.querySelector("#main");
