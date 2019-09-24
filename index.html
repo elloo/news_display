@@ -8,10 +8,15 @@
     <link rel="stylesheet" href="css/style.css">
     <title>News Display</title>
 </head>
-<body>
+<body onload="generateURL('', event)">
     <div class="container">
         <header>
             <h1>News!</h1>
+            <form onsubmit="generateURL(document.forms[0].topic.value, event)">
+                <label for="topic">Topic: </label>
+                <input type="text" id="topic" value="">
+                <input type="submit" value="Search">
+            </form>
         </header>
         <div class="row card">
             <div id="main"></div>
@@ -24,5 +29,6 @@
     
 
     <script src="app.js"></script>
+    
 </body>
 </html>
