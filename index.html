@@ -5,48 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <title>News Display</title>
 </head>
 <body>
-    <header>
-        <h1>News!</h1>
-    </header>
-
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <p id="titles"></p>
-            </div>
-            <div class="col">
-
-            </div>
-            <div class="col">
-
-            </div>
+        <header>
+            <h1>News!</h1>
+        </header>
+        <div class="row card">
+            <div id="main"></div>
+            <ul id="titles"></ul>
         </div>
+        <footer>
+            <p>Powered by <a href="https://newsapi.org">News API</a></p>
+        </footer>
     </div>
 
-    <footer>
-        <p>Powered by <a href="https://newsapi.org">News API</a></p>
-    </footer>
-
-    <script>
-        async function logFetch(url) {
-        try {
-            const response = await fetch(url);
-            const jsonRes = await response.json();
-            const titles = document.querySelector("#titles");
-            for (var i = 0; i < 5; i++){
-                titles.innerHTML += `<br> ${jsonRes.articles[i].title}`;
-            }
-
-        }
-        catch (err) {
-            console.log('Fetch failed', err);
-        }
-        }
-
-        logFetch('https://newsapi.org/v2/top-headlines?' + 'country=au&' + 'apiKey=81e2959a083d42e091898d3be711e743')
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
