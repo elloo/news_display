@@ -10,6 +10,7 @@ header{
     margin-top: 1em;
 }
 
+
 .card{
     margin-left: 110px;
     margin-right: 110px;
@@ -22,6 +23,8 @@ header{
     line-height: 3em;
 }
 
+
+
 footer{
     text-align: center;
     margin-top: 1em;
@@ -30,4 +33,8 @@ footer{
 img{
     width: 100%;
     height: 500px;
+}
+
+p{
+    font-size: 15px;
 }
