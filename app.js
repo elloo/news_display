@@ -4,7 +4,7 @@ function displayArticle(article){
 
     let img = document.createElement("img");
     if (article.urlToImage.startsWith("/")){
-        img.setAttribute("src", "https://content.thriveglobal.com/wp-content/uploads/2018/03/news-1.jpg");
+        img.setAttribute("src", "images/news.jpg");
     } else {
         img.setAttribute("src", `${article.urlToImage}`);
     }
