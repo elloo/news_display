@@ -50,3 +50,15 @@ async function articleFetch(url) {
         console.log('!Fetch failed!', err);
     }
 }
+
+function changeColor(){
+  if (document.body.style.backgroundColor === "black") {
+      document.body.style.backgroundColor = "rgb(255, 237, 196)";
+      document.body.style.color = "black";
+  } else {
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+      document.getElementById("main").style.color = "black"
+      document.getElementById("titles").style.color = "black"
+  }
+}
