@@ -3,35 +3,20 @@ body{
 }
 
 header{
-    /* font-size: 50px; */
     font-family: Georgia, 'Times New Roman', Times, serif;
     justify-content: center;
-    margin-top: 1em;
+    margin: 1em auto;
     text-align: center;
 }
 
-form {
-    display: block;
-}
-
-
-.card{
-    margin-left: 110px;
-    margin-right: 110px;
-    box-shadow: 4px 4px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
+form, .btn-square {
+    display: inline-block;
+    text-transform: uppercase;
 }
 
 p {
     font-size: 15px;
 }
-
-.card-body{
-    line-height: 3em;
-}
-
-
 
 footer{
     text-align: center;
@@ -46,6 +31,18 @@ img{
 li:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.card{
+    margin-left: 110px;
+    margin-right: 110px;
+    box-shadow: 4px 4px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.card-body{
+    line-height: 3em;
 }
 
 .btn-square {
