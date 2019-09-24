@@ -13,15 +13,38 @@
         <header>
             <h1>News!</h1>
         </header>
+
+        <button onclick =changeColor() class="btn-square">ON/OFF</button>
+
+
         <div class="row card">
             <div id="main"></div>
             <ul id="titles"></ul>
         </div>
+       
         <footer>
             <p>Powered by <a href="https://newsapi.org">News API</a></p>
         </footer>
     </div>
 
     <script src="app.js"></script>
+    <script> </script>
+    
+    
 </body>
+<script> 
+    // document.getElementsByClassName("btn-square").addEventListener("click", changeColor)       
+    function changeColor(){
+    if (document.body.style.backgroundColor === "black") {
+        document.body.style.backgroundColor = "rgb(255, 237, 196)";
+        document.body.style.color = "black";
+    } else{
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+        document.getElementById("main").style.color = "black"
+        document.getElementById("titles").style.color = "black"
+    }
+    }
+     
+</script>
 </html>
