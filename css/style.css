@@ -23,6 +23,10 @@ form {
     font-size: 20px;
 }
 
+p {
+    font-size: 15px;
+}
+
 .card-body{
     line-height: 3em;
 }
@@ -37,6 +41,11 @@ footer{
 img{
     width: 100%;
     height: 500px;
+}
+
+li:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .btn-square {
