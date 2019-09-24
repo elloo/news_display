@@ -8,6 +8,28 @@ function generateURL(query, event){
     } 
 }
 
+async function articleFetch(url) {
+    try {
+        const response = await fetch(url);
+        console.log(response);
+        const jsonRes = await response.json();
+        const titlesUl = document.querySelector("#titles");
+        titlesUl.innerHTML = "";
+        document.querySelector("#main").innerHTML = "";
+        for (var i = 0; i < 5; i++){
+            let newLink = document.createElement("li");
+            let articleTitle = `${jsonRes.articles[i].title}`;
+            newLink.setAttribute("onclick", `displayArticle(${JSON.stringify(jsonRes.articles[i])})`)
+            newLink.innerHTML = articleTitle;
+            titlesUl.appendChild(newLink);
+        }
+        return jsonRes.articles;
+    }
+    catch (err) {
+        console.log('!Fetch failed!', err);
+    }
+}
+
 function displayArticle(article){
     const mainDiv = document.querySelector("#main");
     mainDiv.innerHTML = "";
@@ -30,35 +52,17 @@ function displayArticle(article){
     mainDiv.appendChild(desc);
 }
 
-async function articleFetch(url) {
-    try {
-        const response = await fetch(url);
-        console.log(response);
-        const jsonRes = await response.json();
-        const titlesUl = document.querySelector("#titles");
-        titlesUl.innerHTML = "";
-        for (var i = 0; i < 5; i++){
-            let newLink = document.createElement("li");
-            let articleTitle = `${jsonRes.articles[i].title}`;
-            newLink.setAttribute("onclick", `displayArticle(${JSON.stringify(jsonRes.articles[i])})`)
-            newLink.innerHTML = articleTitle;
-            titlesUl.appendChild(newLink);
-        }
-        return jsonRes.articles;
-    }
-    catch (err) {
-        console.log('!Fetch failed!', err);
-    }
-}
-
 function changeColor(){
+    const themeBtn = document.getElementById("theme")
   if (document.body.style.backgroundColor === "black") {
       document.body.style.backgroundColor = "rgb(255, 237, 196)";
       document.body.style.color = "black";
+      themeBtn.innerHTML = "Dark mode";
   } else {
       document.body.style.backgroundColor = "black";
       document.body.style.color = "white";
       document.getElementById("main").style.color = "black"
       document.getElementById("titles").style.color = "black"
+      themeBtn.innerHTML = "Light mode";
   }
 }
