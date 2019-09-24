@@ -12,6 +12,11 @@
     <div class="container">
         <header>
             <h1>News!</h1>
+            <form onsubmit="generateURL()">
+                <label for="topic">Topic: </label>
+                <input type="text" id="topic" value="" />
+                <input type="submit" value="Search">
+            </form>
         </header>
         <div class="row card">
             <div id="main"></div>

@@ -1,5 +1,5 @@
-function dynamicURL(){
-    
+function generateURL(){
+
 }
 
 function displayArticle(article){
@@ -26,7 +26,7 @@ function displayArticle(article){
     console.log(article.urlToImage);
 }
 
-async function logFetch(url) {
+async function articleFetch(url) {
 try {
     const response = await fetch(url);
     const jsonRes = await response.json();
@@ -45,4 +45,4 @@ catch (err) {
 }
 }
 
-var articles = logFetch("https://newsapi.org/v2/top-headlines?country=au&apiKey=81e2959a083d42e091898d3be711e743");
+articleFetch("https://newsapi.org/v2/top-headlines?country=au&apiKey=81e2959a083d42e091898d3be711e743");
