@@ -36,6 +36,7 @@ async function articleFetch(url) {
         console.log(response);
         const jsonRes = await response.json();
         const titlesUl = document.querySelector("#titles");
+        titlesUl.innerHTML = "";
         for (var i = 0; i < 5; i++){
             let newLink = document.createElement("li");
             let articleTitle = `${jsonRes.articles[i].title}`;
