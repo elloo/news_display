@@ -5,10 +5,15 @@ body{
 header{
     /* font-size: 50px; */
     font-family: Georgia, 'Times New Roman', Times, serif;
-    display: flex;
     justify-content: center;
     margin-top: 1em;
+    text-align: center;
 }
+
+form {
+    display: block;
+}
+
 
 .card{
     margin-left: 110px;
@@ -21,6 +26,8 @@ header{
 .card-body{
     line-height: 3em;
 }
+
+
 
 footer{
     text-align: center;
@@ -47,3 +54,4 @@ img{
     transform: translateY(4px);/*下に動く*/
     border-bottom: none;/*線を消す*/
   }
+
