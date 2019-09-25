@@ -33,6 +33,11 @@ li:hover {
     text-decoration: underline;
 }
 
+#weatherIcon {
+    height: 50px;
+    width: 50px;
+}
+
 .card{
     margin-left: 110px;
     margin-right: 110px;
