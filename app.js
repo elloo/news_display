@@ -66,7 +66,7 @@ async function weatherFetch() {
         let month = date.getMonth() + 1;
         let day = date.getDate();
         
-        weatherDiv.innerHTML = `In Sydney on ${months[month]} ${day}, ${year}, it's ${jsonRes.main.temp} &deg;C <img src=${weatherIcon} id="weatherIcon">`;
+        weatherDiv.innerHTML = `In Sydney (AU) on ${months[month]} ${day}, ${year}, it's ${jsonRes.main.temp} &deg;C <img src=${weatherIcon} id="weatherIcon">`;
     }
     catch (err) {
         console.log('!Fetch failed!', err);
