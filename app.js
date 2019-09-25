@@ -11,7 +11,6 @@ function generateURL(query, event){
 async function articleFetch(url) {
     try {
         const response = await fetch(url);
-        console.log(response);
         const jsonRes = await response.json();
         const titlesUl = document.querySelector("#titles");
         titlesUl.innerHTML = "";
@@ -50,6 +49,28 @@ function displayArticle(article){
         desc.innerHTML = `${article.content}` + more;
     }
     mainDiv.appendChild(desc);
+}
+
+async function weatherFetch() {
+    try {
+        const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=Sydney,au&appid=2b82c23cac4b047755e6cb97561de11e&units=metric");
+        const jsonRes = await response.json();
+       
+        const weatherDiv = document.querySelector("#weather");
+       
+        let weatherIcon = `http://openweathermap.org/img/wn/${jsonRes.weather[0].icon}@2x.png`
+        
+        let date = new Date();
+        let year = date.getFullYear();
+        const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        
+        weatherDiv.innerHTML = `In Sydney on ${months[month]} ${day}, ${year}, it's ${jsonRes.main.temp} &deg;C <img src=${weatherIcon} id="weatherIcon">`;
+    }
+    catch (err) {
+        console.log('!Fetch failed!', err);
+    }
 }
 
 function changeColor(){
