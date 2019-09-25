@@ -11,7 +11,6 @@ function generateURL(query, event){
 async function articleFetch(url) {
     try {
         const response = await fetch(url);
-        console.log(response);
         const jsonRes = await response.json();
         const titlesUl = document.querySelector("#titles");
         titlesUl.innerHTML = "";
